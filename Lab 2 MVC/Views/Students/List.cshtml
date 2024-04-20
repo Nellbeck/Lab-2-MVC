@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Lab_2_MVC.Models.Entities.Students>
+
+<h1>Students</h1>
+
+@using (Html.BeginForm("List", "Students", FormMethod.Get))
+{
+    <p>
+        Search: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+        <input type="checkbox" value=""></input>
+        <input type="submit" value="Find" />
+    </p>
+
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Class</th>
+            <th>Course</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Gender</td>
+                <td>@student.Classes.Name</td>
+                <td>@student.Courses.Name</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Lab_2_MVC.Models.Entities.Students
+
+<h1>Add Student</h1>
+
+<form method="post">
+    <div class="mt-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Gender</label>
+        <input type="text" class="form-control" asp-for="Gender" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Birthdate</label>
+        <input type="date" class="form-control" asp-for="Birthdate" />
+    </div>
+    <div class="mt-3">
+        <label asp-for="Courses.Name" class="form-label">Course</label>
+        <select asp-items="@ViewBag.Courses" class="form-select" asp-for="CoursesId">
+            <option disabled selected>Select Course</option>
+        </select>
+    </div>
+    <div class="mt-3">
+        <label asp-for="Classes.Name" class="form-label">Class</label>
+        <select asp-items="@ViewBag.Classes" class="form-select" asp-for="ClassesId">
+            <option disabled selected>Select Class</option>
+        </select>
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

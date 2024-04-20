@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Lab_2_MVC.Models.Entities.Teachers>
+
+<h1>Teachers</h1>
+
+@using (Html.BeginForm("List", "Teachers", FormMethod.Get))
+{
+    <p>
+        Search: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+        <input type="checkbox" value=""></input>
+        <input type="submit" value="Find" />
+    </p>
+
+}
+
+<a class="btn btn-primary" asp-controller="Teachers" asp-action="CreateCourse">Create Course</a>
+<a class="btn btn-primary" asp-controller="Teachers" asp-action="EditCourse">Edit Course</a>
+<a class="btn btn-primary" asp-controller="Teachers" asp-action="CreateClass">Create Class</a>
+<a class="btn btn-primary" asp-controller="Teachers" asp-action="EditClass">Edit Class</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Course</th>
+            <th>Class</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model)
+        {
+            <tr>
+                <td>@teacher.Id</td>
+                <td>@teacher.Name</td>
+                <td>@teacher.Gender</td>
+                <td>@teacher.Email</td>
+                <td>@teacher.PhoneNumber</td>
+                <td>@teacher.Courses.Name</td>
+                <td>@teacher.Classes.Name</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Teachers" asp-action="Edit" asp-route-id="@teacher.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
