@@ -37,7 +37,7 @@ namespace Lab_2_MVC.Controllers
             await dbContext.Teachers.AddAsync(teacher);
             await dbContext.SaveChangesAsync();
 
-            return RedirectToAction("List", "Teachers");
+            return RedirectToAction("List", "Searches");
         }
         public void PopulateCourses () 
         {
@@ -63,7 +63,7 @@ namespace Lab_2_MVC.Controllers
             await dbContext.Courses.AddAsync(course);
             await dbContext.SaveChangesAsync();
 
-            return RedirectToAction("List", "Teachers");
+            return RedirectToAction("List", "Searches");
         }
         public IActionResult EditCourse()
         {
@@ -80,7 +80,7 @@ namespace Lab_2_MVC.Controllers
                 course.Name = viewModel.Name;
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("List", "Teachers");
+            return RedirectToAction("List", "Searches");
         }
         public void PopulateClasses()
         {
@@ -106,7 +106,7 @@ namespace Lab_2_MVC.Controllers
             await dbContext.Classes.AddAsync(newClass);
             await dbContext.SaveChangesAsync();
 
-            return RedirectToAction("List", "Teachers");
+            return RedirectToAction("List", "Searches");
         }
         public IActionResult EditClass() 
         {
@@ -123,7 +123,7 @@ namespace Lab_2_MVC.Controllers
                 classes.Name = viewModel.Name;
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("List", "Teachers");
+            return RedirectToAction("List", "Searches");
         }
         [HttpGet]
         public async Task<IActionResult> List(string Search_Data)
@@ -163,7 +163,7 @@ namespace Lab_2_MVC.Controllers
                 teacher.ClassesId = viewModel.ClassesId;
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("List", "Teachers");
+            return RedirectToAction("List", "Searches");
         }
         [HttpPost]
         public async Task<IActionResult> Delete(Teachers viewModel)
@@ -176,7 +176,7 @@ namespace Lab_2_MVC.Controllers
 
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("List", "Employees");
+            return RedirectToAction("List", "Searches");
         }
     }
 }

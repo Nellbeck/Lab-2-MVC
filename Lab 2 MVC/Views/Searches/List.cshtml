@@ -2,7 +2,7 @@
 
 <h1>Search</h1>
 
-@using (Html.BeginForm("List", "Enrollment", FormMethod.Get))
+@using (Html.BeginForm("List", "Searches", FormMethod.Get))
 {
     <p>
         Search: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)

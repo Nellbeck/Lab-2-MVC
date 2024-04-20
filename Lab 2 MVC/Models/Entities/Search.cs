@@ -7,10 +7,6 @@ namespace Lab_2_MVC.Models.Entities
     {
         [Key]
         public Guid? Id { get; set; }
-        [ForeignKey("FKTeacher")]
-        public Guid? FKTeacher { get; set; }
-        [ForeignKey("FKStudent")]
-        public Guid? FKStudent { get; set; }
 
         public Teachers? Teachers { get; set; }
         public Students? Students { get; set; }

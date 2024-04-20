@@ -35,7 +35,7 @@ namespace Lab_2_MVC.Controllers
             await dbContext.Students.AddAsync(student);
             await dbContext.SaveChangesAsync();
 
-            return RedirectToAction("List", "Students");
+            return RedirectToAction("List", "Searches");
         }
         public void PopulateCourses()
         {
@@ -91,7 +91,7 @@ namespace Lab_2_MVC.Controllers
 
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("List", "Students");
+            return RedirectToAction("List", "Searches");
         }
         [HttpPost]
         public async Task<IActionResult> Delete(Students viewModel)
@@ -104,7 +104,7 @@ namespace Lab_2_MVC.Controllers
 
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("List", "Students");
+            return RedirectToAction("List", "Searches");
         }
     }
 }
